@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'SFUIDisplay';
+  src: url('../fonts/SFUIDisplay-Medium.eot');
+  src: url('../fonts/SFUIDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/SFUIDisplay-Medium.woff') format('woff'),
+       url('../fonts/SFUIDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+}
+
+@font-face {
+  font-family: 'SFUIText';
+  src: url('../fonts/SFUIText-Regular.eot');
+  src: url('../fonts/SFUIText-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/SFUIText-Regular.woff') format('woff'),
+  url('../fonts/SFUIText-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+}
+
+@font-face {
+  font-family: 'SFUIText';
+  src: url('../fonts/SFUIText-Semibold.eot');
+  src: url('../fonts/SFUIText-Semibold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/SFUIText-Semibold.woff') format('woff'),
+  url('../fonts/SFUIText-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+}

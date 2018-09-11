@@ -1,0 +1,396 @@
+@import "Reset";
+@import "Fonts";
+
+//Base Start
+
+  //Var Start
+:root{
+  --black-color:#212736;
+  --blue-color:#165bfb;
+  --grey-color:#dfe2e8;
+  --light-blue:#f7f8fa;
+
+  --lite-grey-color: #c5cbd6;
+  --line-color-grey:#e6e6e6;
+
+  --fontDisplay:'SFUIDisplay';
+  --fontText:'SFUIText';
+
+  --modal-shadow:0 4px 8px 0 rgba(33, 39, 54, 0.16);
+  --modal-header-shadow:0 0 6px 0 rgba(33, 39, 54, 0.16), 0 0 3px 0 rgba(33, 39, 54, 0.08);
+  --modal-overlay:rgb(229, 229, 229);
+
+  /*Color Input Variables Start*/
+
+  --input-blue:#2195f4;
+  --input-dark-orange: #ee7b67;
+  --input-purple:#d944fb;
+  --input-black: #323435;
+  --input-orange-line: #ffd737;
+  --input-grad-grey: linear-gradient(46deg, #e7e7e7, #ffffff);
+  --input-grad-dark-orange: linear-gradient(46deg, #c0513e, #ee7b67);
+  --input-grad-blue: linear-gradient(46deg, #005296, #2195f4);
+  --input-grad-purple: linear-gradient(46deg, #aa1ccb, #d944fb);
+  --input-grad-black: linear-gradient(46deg, #5b6a72, #323435);;
+  /*Color Input Variables Finish*/
+}
+
+//Var END
+
+body{
+  font-family: var(--fontText);
+  color: var(--black-color);
+}
+
+
+.close {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  &:before, &:after {
+    position: absolute;
+    left: 7px;
+    content: ' ';
+    height: 100%;
+    width: 2px;
+    background-color: #333;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.btn {
+  font-family: var(--fontDisplay);
+  color: var(--blue-color);
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid var(--blue-color);
+  border-radius: 3px;
+  padding: 5px 10px;
+  &:hover,&:focus{
+    background: var(--blue-color);
+    color: white;
+  }
+  &_main-page{
+    margin: 20px auto;
+  }
+}
+
+.main-page{
+  display: flex;
+  justify-content: center;
+}
+// Base END
+.modal-head{
+  padding: 21px 10px 0 24px;
+  background-color: var(--light-blue);
+  box-shadow: var(--modal-header-shadow);
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+  &__title{
+    font-family: var(--fontDisplay);
+    color: var(--black-color);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+  }
+  &__close-button{
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    width: 32px;
+    padding: 0;
+    &:hover{
+      .modal-head__close-icon{
+        opacity: 0.5;
+      }
+    }
+  }
+  &__close-icon{
+    width: 20px;
+    height: 20px;
+    &:after,&:before{
+      left: 13px;
+    }
+  }
+}
+
+.modal-main{
+  padding: 15px 24px 0;
+  &__tabs{
+    margin-bottom: 17px;
+  }
+  &__button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 -24px;
+    width: calc(100% + 48px);
+    background-color:var(--light-blue);
+    box-shadow: 0 0 6px 0 rgba(33, 39, 54, 0.16), 0 0 3px 0 rgba(33, 39, 54, 0.08);
+    border:none;
+    padding: 10px 0;
+    font-family: var(--fontText);
+    font-size: 14px;
+    line-height: 1.43;
+    color: var(--black-color);
+    &:hover{
+      background-color:var(--lite-grey-color);
+    }
+  }
+  &__button-icon{
+    margin: 0 5px;
+  }
+  &__item{
+    display: none;
+    &_active{
+      display: block;
+    }
+  }
+}
+
+//Tabs In Head Start
+
+.tabs-list{
+  list-style: none;
+  &__item{
+    display: inline-block;
+    margin-right: 25px;
+  }
+  &__link{
+    font-family: var(--fontText);
+    font-size: 14px;
+    line-height: 1.43;
+    text-align: center;
+    color: var(--black-color);
+    padding: 13px 0;
+    transition: .3s;
+    background: transparent;
+    border: none;
+    position: relative;
+    &:hover{
+      color: var(--blue-color);
+    }
+    &_active{
+      &:after{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        background-color: var(--blue-color);
+        width: 100%;
+      }
+    }
+  }
+}
+
+//Tabs In Head Finish
+// Tabs in modal-main Start
+
+.tabs{
+  list-style: none;
+  display: flex;
+  &__item{
+    width: 100%;
+    border-right: solid 1px var(--lite-grey-color);
+    border-top: solid 1px var(--lite-grey-color);
+    border-bottom: solid 1px var(--lite-grey-color);
+    &:first-child{
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      border-left: solid 1px var(--lite-grey-color);
+    }
+    &:last-child{
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+  }
+  &__link{
+    width: 100%;
+    text-align: center;
+    font-family: var(--fontText);
+    font-size: 14px;
+    line-height: 1.43;
+    color: var(--black-color);
+    padding: 7px 0;
+    border: none;
+    background: transparent;
+    &_active{
+      background:var(--lite-grey-color);
+    }
+  }
+}
+
+// Tabs in modal-main Finish
+//Content Start
+.choose-image{
+  background: url("../img/back-img_bridge.jpg") no-repeat center;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  &__button{
+    border: none;
+    border-radius: 4px;
+    background: #fff;
+    font-family: var(--fontText);
+    font-size: 14px;
+    line-height: 1.43;
+    color: var(--black-color);
+    padding: 7.5px 19px 7.5px 15px;
+    margin-right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    &:hover,&:focus{
+      background: var(--lite-grey-color);
+    }
+    &-icon{
+      margin-right: 7px;
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  &:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(33, 39, 54, 0.56);
+    z-index: 0;
+  }
+}
+
+.section{
+  padding: 23px 0;
+  border-bottom: 1px solid var(--line-color-grey);
+  &_noborder{
+    border: none;
+  }
+  &__content{
+    padding-top: 16px;
+    &_hide{
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+}
+
+.color-section{
+  margin-bottom: 13px;
+  &_last{
+    margin-bottom: 0;
+  }
+  &__title{
+    font-family: var(--fontText);
+    font-size: 14px;
+    line-height: 1.43;
+    color: var(--black-color);
+    margin-bottom: 1px;
+  }
+}
+
+.color-input{
+  margin-left: -2px;
+  &__button{
+    width: 46px;
+    height: 46px;
+    border-radius: 6px;
+    border:2px solid transparent;
+    position: relative;
+    background: transparent;
+    padding: 1px;
+    margin-right: 2px;
+    &:hover{
+      border-color:var(--lite-grey-color);
+    }
+    &_active{
+      border-color:var(--blue-color);
+      &:hover{
+        border-color:var(--blue-color);
+      }
+    }
+  }
+  &__marker{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: transparent;
+    border: solid 1px #d9dce2;
+    &_white{
+      background-color: #fff;
+      border-color:#d9dce2;
+    }
+    &_dark-orange{
+      background-color:var(--input-dark-orange);
+    }
+    &_blue{
+      background-color:var(--input-blue);
+    }
+    &_purple{
+      background-color:var(--input-purple);
+    }
+    &_black{
+      background-color: var(--input-black);
+    }
+    &_grad-grey{
+      background-image: var(--input-grad-grey);
+    }
+    &_grad-dark-orange{
+      background-image: var(--input-grad-dark-orange);
+    }
+    &_grad-blue{
+      background-image: var(--input-grad-blue);
+    }
+    &_grad-purple{
+      background-image: var(--input-grad-purple);
+    }
+    &_grad-black{
+      background-image: var(--input-grad-black);
+    }
+    &_custom{
+      background: url("../img/icons/picker.png") no-repeat center;
+      position: relative;
+      &:after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        left: 0;
+        bottom:0;
+        background: var(--input-orange-line);
+      }
+    }
+  }
+}
+
+.tabs-content{
+  &__item{
+    display: none;
+    &_active{
+      display: block;
+    }
+  }
+}
+
+//Content Finish
